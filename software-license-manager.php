@@ -1,15 +1,14 @@
 <?php
 /*
-Plugin Name: Software License Manager
-Version: 5.6.2
-Plugin URI: https://github.com/michelve/software-license-manager/
-Author: Michel Velis
-Author URI: http://www.epikly.com/
-Description: Software license management solution for your web applications (WordPress plugins, Themes, Applications, PHP based license software script etc.). Supports WooCommerce.
-Author2: <a href="https://www.tipsandtricks-hq.com/">Tips and Tricks HQ</a>
+Plugin Name: Lune License Manager
+Version: 1.0.0
+Plugin URI: https://lunebuilder.com/
+Author: AB2Web
+Author URI: https://www.ab2web.com/
+Description: License management for Lune products. Based on SLM Plus by Michel Velis.
 Text Domain: softwarelicensemanager
 Domain Path: /i18n/languages/
-WC tested up to: 6.1.0
+WC tested up to: 9.9.0
 */
 
 // If this file is called directly, abort.
@@ -19,7 +18,7 @@ if (!defined('WPINC')) {
 global $wpdb, $slm_debug_logger;
 
 //Short name/slug "SLM" or "slm"
-define('SLM_VERSION',               '5.6.2');
+define('SLM_VERSION',               '1.0.0');
 define('SLM_DB_VERSION',            '4.3.5');
 define('SLM_REWRITE_VERSION',       '2.4.5');
 define('SLM_FOLDER',                dirname(plugin_basename(__FILE__)));

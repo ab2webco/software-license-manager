@@ -57,8 +57,4 @@ define('KEY_API_PREFIX',        SLM_Helper_Class::slm_get_option('lic_prefix'));
 
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'slm_settings_link');
 
-// plugin auto updater helper
-if (file_exists('plugin-update-checker/plugin-update-checker.php')) {
-    require 'plugin-update-checker/plugin-update-checker.php';
-    $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker('https://github.com/michelve/software-license-manager', __FILE__, '/software-license-manager');
-}
+// External auto-update disabled — this is our own maintained fork.

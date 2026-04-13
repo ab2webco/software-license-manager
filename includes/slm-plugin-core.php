@@ -92,7 +92,7 @@ function deactivate_software_license_manager()
 
 function slm_get_license($lic_key_prefix = '')
 {
-    return strtoupper($lic_key_prefix  . hyphenate(md5(uniqid(rand(4, 10), true) . date('Y-m-d H:i:s') . time())));
+    return strtoupper($lic_key_prefix  . hyphenate(md5(uniqid(rand(4, 10), true) . gmdate('Y-m-d H:i:s') . time())));
 }
 
 register_activation_hook(__FILE__, 'activate_software_license_manager');

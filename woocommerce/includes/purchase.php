@@ -144,7 +144,7 @@ function wc_slm_create_license_keys($order_id)
                 // 	$renewal_period = date('Y-m-d', strtotime('+' . 31 . ' days'));
                 // }
                 else {
-                    $expiration = date('Y-m-d', strtotime('+' . $renewal_period . ' ' . $renewal_term));
+                    $expiration = wp_date('Y-m-d', strtotime('+' . $renewal_period . ' ' . $renewal_term));
                 }
                 // SLM_Helper_Class::write_log('renewal_period -- '.$renewal_period  );
                 // SLM_Helper_Class::write_log('exp -- ' . $expiration);
@@ -193,7 +193,7 @@ function wc_slm_create_license_keys($order_id)
                 $api_params['txn_id'] = $purchase_id_;
                 $api_params['max_allowed_domains'] = $sites_allowed;
                 $api_params['max_allowed_devices'] = $amount_of_licenses_devices;
-                $api_params['date_created'] = date('Y-m-d');
+                $api_params['date_created'] = wp_date('Y-m-d');
                 $api_params['date_expiry'] = $expiration;
                 $api_params['slm_billing_length'] = $slm_billing_length;
                 $api_params['slm_billing_interval'] = $slm_billing_interval;
@@ -252,7 +252,7 @@ function wc_slm_get_license_key($response)
         return false;
     }
     // Get License data
-    $json = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', utf8_encode(wp_remote_retrieve_body($response)));
+    $json = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', mb_convert_encoding(wp_remote_retrieve_body($response), 'UTF-8', 'ISO-8859-1'));
     $license_data = json_decode($json);
 
     if (!isset($license_data->key)) {

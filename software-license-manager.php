@@ -56,4 +56,11 @@ define('KEY_API_PREFIX',        SLM_Helper_Class::slm_get_option('lic_prefix'));
 
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'slm_settings_link');
 
-// External auto-update disabled — this is our own maintained fork.
+// Block WordPress.org from offering updates for this plugin — our own fork.
+add_filter( 'site_transient_update_plugins', function( $transient ) {
+	$plugin_file = plugin_basename( __FILE__ );
+	if ( isset( $transient->response[ $plugin_file ] ) ) {
+		unset( $transient->response[ $plugin_file ] );
+	}
+	return $transient;
+} );

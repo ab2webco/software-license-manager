@@ -104,7 +104,7 @@ function slm_add_licenses_menu()
         $subscr_id      = $_POST['subscr_id'];
         $lic_type       = $_POST['lic_type'];
 
-        if ("" == trim($_POST['item_reference'])) {
+        if (empty($_POST['item_reference'])) {
             $lic_item_ref   = 'default';
         } else {
             $lic_item_ref   = trim($_POST['item_reference']);
